@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  width: 80%;
+  max-width: 1000px;
+}
+
+.card {
+  background-color: rgba(
+    241,
+    241,
+    241,
+    0
+  ); /* Adjust opacity and color as needed */
+  /* filter: blur(5px);  */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  flex: 1; /* Make cards flexible for responsive layout */
+}
+
+.card-header {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+#pieChart {
+  width: 100%;
+  height: 100%;
+}
+/* Input Section Styles */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Input Section Styles */
+.address,
+.address2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textstyle {
+  width: 40%;
+  font-weight: bold;
+}
+
+.myInput {
+  width: 60%;
+  padding: 5px 10px;
+  background-color: rgba(241, 241, 241, 0.384);
+  /* border: 1px solid #ccc; */
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+/* Output Section Styles */
+.output-card {
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* Change text color to white for better contrast */
+}
+/* background-image: url("https://images.unsplash.com/photo-1707147231430-7870dda96138?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");  */
+@media only screen and (max-width: 768px) {
+  /* Stack cards vertically on mobile screens */
+  .container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .input-section,
+  .chart-section {
+    padding: 10px;
+  }
+}

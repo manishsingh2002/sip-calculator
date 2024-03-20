@@ -1,0 +1,72 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<body>
+  <div class="container">
+    <div class="card input-card">
+      <div class="card-header">
+        <h2>Investment Details</h2>
+      </div>
+      <div class="input-section">
+        <div class="address">
+          <div class="textstyle">Amount</div>
+          <input
+            class="myInput"
+            type="number"
+            name="principal_amount"
+            placeholder="Enter Amount"
+            [(ngModel)]="principal"
+            (keyup)="calculateFutureValue()"
+          />
+        </div>
+        <div class="address2">
+          <div class="textstyle">SIP Rate (in %)</div>
+          <input
+            class="myInput"
+            type="number"
+            name="rate"
+            placeholder="Enter SIP Rate"
+            [(ngModel)]="sip_rate"
+            (keyup)="calculateFutureValue()"
+          />
+        </div>
+        <div class="address2">
+          <div class="textstyle">Investment Tenure (in Years)</div>
+          <input
+            class="myInput"
+            type="number"
+            name="year"
+            placeholder="Enter Investment Tenure"
+            [(ngModel)]="year"
+            (keyup)="calculateFutureValue()"
+            (keyup)="view()"
+          />
+        </div>
+      </div>
+      <div *ngIf="futureValue !== null">
+        <div class="div" class="myInput">
+          <!-- <h2>Future Value: &#8377; {{ futureValue.toFixed(2) }}</h2> -->
+        </div>
+      </div>
+    </div>
+    <div class="card output-card">
+      <div class="card-header">
+        <h2>Investment Summary</h2>
+      </div>
+      <div class="chart-section">
+        <div class="calculator-container">
+          <div *ngIf="futureValue !== null">
+            <h2>
+              Total Investment: &#8377; {{ (principal * year * 12).toFixed(2) }}
+            </h2>
+            <div *ngIf="futureValue !== null">
+              <h2>Future Value: &#8377; {{ futureValue.toFixed(2) }}</h2>
+              <h2>profit :{{ profit }}</h2>
+            </div>
+
+            <canvas id="pieChart" width="400" height="200"></canvas>
+            <!-- <canvas id="lineChart" width="800" height="400"></canvas> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
